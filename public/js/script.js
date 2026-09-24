@@ -7,12 +7,12 @@
         });
     }
 
-    // Ejecuta la función al cargar la página y al cambiar el tamaño de la ventana
+    // Ejecuta la funcion al cargar la pagina y al cambiar el tamano de la ventana
     window.addEventListener('load', adjustPortfolioItems);
     window.addEventListener('resize', adjustPortfolioItems);
 
 
-    // JavaScript para el desplazamiento suave
+    // JavaScript para el desplazamiento suave.......
 $(document).ready(function(){
     $("a").on('click', function(event) {
         if (this.hash !== "") {
@@ -27,9 +27,8 @@ $(document).ready(function(){
     });
 });
 
-
-//Profesiones automaticamente
-
+  
+//Profesiones automaticamente..........
   document.addEventListener('DOMContentLoaded', function () {
     // Array  profesiones
     let profesiones = ['Bibiana Caicedo','Anaista', 'Developer', 'Engineering'];
@@ -45,59 +44,66 @@ $(document).ready(function(){
         profesionElemento.textContent = nuevaProfesion;
     }
 
-    // Cambia dinámicamente cada 2 segundos
+    // Cambia dinamicamente cada 2 segundos......
     setInterval(cambiarNombreYProfesion, 3000);
 
     // Ejecutar la función una vez después de cargar la página
     cambiarNombreYProfesion();
 });
 
-// validar contacto....
-  document.addEventListener('DOMContentLoaded', () => {
-  const form = document.querySelector('form');
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    if (validateForm()) {
-      form.submit();
-    }
-  });
+// Formulario de contacto por WhatsApp
 
-  function validateForm() {
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
+document.addEventListener('DOMContentLoaded', () => {
 
-    let isValid = true;
-    let errorMessage = '';
+    const form = document.getElementById('contactForm');
 
-    if (!name) {
-      errorMessage += 'El campo nombre es obligatorio.\n';
-      isValid = false;
-    }
+    form.addEventListener('submit', (e) => {
 
-    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!email || !emailPattern.test(email)) {
-      errorMessage += 'Ingrese un correo electrónico válido.\n';
-      isValid = false;
-    }
+        e.preventDefault();
 
-    if (message.length < 10) {
-      errorMessage += 'El mensaje debe tener al menos 10 caracteres.\n';
-      isValid = false;
-    }
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
 
-    if (!isValid) {
-      alert(errorMessage);
-    }
+        let errorMessage = '';
 
-    return isValid;
-  }
+        if (!name) {
+            errorMessage += 'El campo nombre es obligatorio.\n';
+        }
+
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        if (!email || !emailPattern.test(email)) {
+            errorMessage += 'Ingrese un correo electrónico válido.\n';
+        }
+
+        if (message.length < 10) {
+            errorMessage += 'El mensaje debe tener al menos 10 caracteres.\n';
+        }
+
+        if (errorMessage) {
+            alert(errorMessage);
+            return;
+        }
+
+        const telefono = '573148718798';
+
+        const texto = 
+            `Hola Bibiana, mi nombre es ${name}. ` +
+            `Mi correo es ${email}. ` +
+            `Mensaje: ${message}`;
+
+        const url = `https://wa.me/${telefono}?text=${encodeURIComponent(texto)}`;
+
+        window.open(url, '_blank');
+
+    });
+
 });
 
 
-
-// Seleccionamos todos los inputs de rango
+// Seleccionamos todos los inputs de rango.....
 const skillInputs = document.querySelectorAll('.skill-input');
 
 skillInputs.forEach(input => {
@@ -116,7 +122,6 @@ skillInputs.forEach(input => {
 });
 
 
-
     document.addEventListener('DOMContentLoaded', function() {
         const successMessage = document.querySelector('.success-message');
         if (successMessage) {
@@ -129,7 +134,7 @@ skillInputs.forEach(input => {
 
     document.addEventListener('DOMContentLoaded', function () {
 
-  // Array de tecnologías
+  // Array de tecnologias.........
   const tecnologias = [
     'HTML',
     'CSS',
@@ -147,10 +152,10 @@ skillInputs.forEach(input => {
     index = (index + 1) % tecnologias.length;
   }
 
-  // Cambia cada 2 segundos
+  // Cambia cada 2 segundos........
   setInterval(cambiarTecnologia, 2000);
 
-  // Ejecutar al cargar
+  // Ejecutar al cargar......
   cambiarTecnologia();
 });
 
